@@ -16,7 +16,21 @@ management:
       slo:
         http:
           server:
-            requests: 500ms,1s,2s,5s,10s,15s,30s
+            requests: 500ms,1s,2s,5s,10s,15s,30s # not working in cloud?
+      percentiles:
+        http:
+          server:
+            requests: 0.95 # not working in cloud?
+      percentiles-histogram:
+        http:
+          server:
+            requests: true # not working in cloud?
     export:
       prometheus:
         enabled: true
+    web:
+      server:
+        request:
+          autotime:
+            enabled: true
+logging.level.org: DEBUG

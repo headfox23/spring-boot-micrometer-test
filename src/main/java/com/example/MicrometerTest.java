@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @Slf4j
-@SpringBootApplication(exclude = RedisAutoConfiguration.class)
+@SpringBootApplication
 @EnableConfigurationProperties
 public class MicrometerTest {
     public static void main(String[] args) {
