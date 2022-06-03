@@ -1,0 +1,22 @@
+server:
+  max-http-header-size: 40KB # needed for m2m token which exceeds 8KB default header size
+spring:
+  cloudfoundry:
+    enabled: true
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: prometheus,health,info
+      path-mapping:
+        prometheus: actuator/prometheus
+  metrics:
+    distribution:
+      slo:
+        http:
+          server:
+            requests: 500ms,1s,2s,5s,10s,15s,30s
+    export:
+      prometheus:
+        enabled: true
